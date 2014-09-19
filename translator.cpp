@@ -402,8 +402,8 @@ void SentenceTranslator::extend_cand_by_cube_pruning(Candpq &candpq, SyntaxNode*
 			break;
 		Cand *best_cand = candpq.top();
 		candpq.pop();
-		bool flag = node->cand_organizer.add(best_cand);
 		add_neighbours_to_pq(candpq,best_cand,duplicate_set);
+		bool flag = node->cand_organizer.add(best_cand);
 		if (flag == false)
 		{
 			delete best_cand;
@@ -481,7 +481,7 @@ void SentenceTranslator::extend_cand_with_unary_rule(RuleMatchInfo &rule_match_i
 	vector<Cand*> old_cands = rule_match_info.syntax_root->cand_organizer.all_cands;
 	for (auto cand : old_cands)                                                   // 遍历已有的候选
 	{
-		if ( cand->tgt_root == tgt_vocab->get_id("X-X-X") )                       // 跳过glue规则生成的候选
+		if ( cand->type == GLUE )                                                 // 跳过glue规则生成的候选
 			continue;
 		vector<int> tgt_root_id = {cand->tgt_root,0};
 		auto it = rule_match_info.rule_node->tgt_rule_group.find(tgt_root_id);    // 查找一元规则是否有匹配的目标端

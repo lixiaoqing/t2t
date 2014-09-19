@@ -29,8 +29,6 @@ void RuleTrieNode::group_and_sort_tgt_rules()
 		sort( kvp.second.begin(), kvp.second.end() );
 		reverse( kvp.second.begin(), kvp.second.end() );
 	}
-
-	proc_flag = true;
 }
 
 RuleTable::RuleTable(const size_t size_limit,bool load_alignment,const Weight &i_weight,const string &rule_table_file,Vocab *i_src_vocab, Vocab* i_tgt_vocab)
