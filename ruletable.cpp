@@ -87,7 +87,7 @@ void RuleTable::load_rule_table(const string &rule_table_file)
 		fin.read((char*)&tgt_rule.is_composed_rule,sizeof(short int));
 		fin.read((char*)&tgt_rule.is_lexical_rule,sizeof(short int));
 
-		if (true)
+		if (false)
 		{
 			for (auto id : rulenode_ids)
 			{
